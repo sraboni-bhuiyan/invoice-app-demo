@@ -42,4 +42,8 @@ const addProductBtn = document.getElementById("add-details-btn").addEventListene
     }
   });
   
+  function element(param) {
+    return document.createElement(param);
+  }
+  
   
