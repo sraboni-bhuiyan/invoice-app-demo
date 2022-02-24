@@ -46,4 +46,30 @@ const addProductBtn = document.getElementById("add-details-btn").addEventListene
     return document.createElement(param);
   }
   
+  function totalCalculation() {
+    const subTotal = calculateSubTotal();
   
+    const subTotalToDisplay = document.getElementById("sub-total");
+    subTotalToDisplay.innerText = subTotal;
+  
+    const tax = subTotal * 0.2;
+  
+    document.getElementById("tax").innerText = tax.toFixed(2);
+    document.getElementById("grand-total").innerText = subTotal + tax;
+    document.getElementById("grand-total-2").innerText = subTotal + tax;
+  }
+  
+  function calculateSubTotal() {
+    let subTotal = 0;
+  
+    const cost = document.getElementsByClassName("item-total");
+  
+    for (let i = 0; i < cost.length; i++) {
+      const element = cost[i];
+      const price = parseInt(element.innerText);
+  
+      subTotal = subTotal + price;
+    }
+  
+    return subTotal;
+  }
